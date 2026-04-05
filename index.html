@@ -214,20 +214,22 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#f0f4f0}
   /* Nav */
   .nav button{font-size:10px;padding:10px 8px;white-space:nowrap;flex-shrink:0}
 
-  /* Header - row layout: logo | text | button */
+  /* Header - row layout: logo | text, no overflow */
   .header{
     flex-direction:row!important;
     align-items:center!important;
     padding:10px 14px!important;
     min-height:64px!important;
     gap:10px!important;
+    overflow:hidden!important;
+    max-width:100vw!important;
   }
-  .hdr-logo{padding:5px 8px;border-radius:10px;height:50px;width:auto}
-  .hdr-logo img{height:38px}
+  .hdr-logo{padding:5px 8px;border-radius:10px;height:50px;width:auto;flex-shrink:0}
+  .hdr-logo img{height:38px;width:auto}
   .hdr-sep{display:none}
-  .hdr-text{flex:1;text-align:right;min-width:0}
-  .hdr-title{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .hdr-sub{font-size:9px;margin-top:2px;letter-spacing:0.5px}
+  .hdr-text{flex:1;text-align:right;min-width:0;overflow:hidden}
+  .hdr-title{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+  .hdr-sub{font-size:9px;margin-top:2px;letter-spacing:0.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
   .hdr-btn{display:none}
   .btn-white{padding:7px 11px;font-size:11px;border-radius:7px}
 
@@ -296,19 +298,19 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#f0f4f0}
   .c-icon{width:32px;height:32px;font-size:14px}
   .f-inp,.f-ta{font-size:13px;padding:10px 12px}
 
-  /* Footer */
-  .footer-top{flex-direction:column;gap:14px;padding:16px}
-  .f-brand{flex-direction:row;gap:10px;align-items:center}
+  /* Footer - single column, centered */
+  .footer-top{flex-direction:column;align-items:center;gap:14px;padding:16px;text-align:center}
+  .f-brand{flex-direction:row;gap:10px;align-items:center;justify-content:center}
   .f-logo img{height:26px}
   .f-brand-name{font-size:13px}
   .f-tag{font-size:10px}
   .f-divv{display:none}
-  .f-links{gap:2px;justify-content:flex-end}
+  .f-links{gap:2px;justify-content:center;flex-wrap:wrap}
   .f-links button{font-size:10px;padding:3px 6px}
-  .f-contact{flex-direction:column;gap:16px;align-items:flex-end}
-  .f-contact-item{font-size:10px;gap:6px}
+  .f-contact{flex-direction:column;gap:10px;align-items:center}
+  .f-contact-item{font-size:10px;gap:6px;justify-content:center}
   .f-contact-item span{font-size:13px}
-  .footer-bot{flex-direction:column;text-align:center;padding:8px 16px;gap:6px}
+  .footer-bot{flex-direction:column;align-items:center;text-align:center;padding:8px 16px;gap:6px}
   .f-copy{font-size:10px}
   .f-legal{flex-wrap:wrap;justify-content:center;gap:4px}
   .f-legal button{font-size:10px}
