@@ -211,10 +211,9 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#f0f4f0}
   .war-notice{font-size:9px;padding:2px 7px}
   .s-sub{font-size:10px}
 
-  /* Nav - horizontally scrollable, no wrap */
-  .nav{overflow-x:auto;-webkit-overflow-scrolling:touch;flex-wrap:nowrap;scrollbar-width:none;-ms-overflow-style:none}
-  .nav::-webkit-scrollbar{display:none}
-  .nav button{font-size:9px;padding:8px 5px;white-space:nowrap;flex-shrink:0}
+  /* Nav - 2-row grid on mobile */
+  .nav{display:grid;grid-template-columns:repeat(4,1fr);overflow-x:unset;flex-wrap:unset}
+  .nav button{font-size:10px;padding:9px 4px;text-align:center;border:none;width:100%;white-space:nowrap}
 
   /* Header - row layout: logo | text, no overflow */
   .header{
