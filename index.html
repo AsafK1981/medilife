@@ -207,6 +207,24 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .back-btn{display:inline-flex;align-items:center;gap:8px;background:#e8f7e6;color:#1a7a16;border:none;border-radius:10px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:32px;font-family:inherit}
 .back-nav{background:#fff;display:flex;align-items:stretch;border-bottom:1px solid #e8f0e8;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
 .back-nav button{color:#3aaa35;font-size:13px;font-weight:700;padding:12px 18px;border:none;background:none;cursor:pointer;font-family:inherit}
+/* Accessibility widget */
+.a11y-btn{position:fixed;bottom:20px;left:20px;z-index:9999;width:40px;height:40px;border-radius:50%;background:rgba(58,170,53,0.55);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 10px rgba(0,0,0,0.15);transition:background 0.2s;backdrop-filter:blur(4px)}
+.a11y-btn:hover{background:rgba(58,170,53,0.85)}
+.a11y-panel{position:fixed;bottom:68px;left:20px;z-index:9999;background:white;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.15);padding:16px;width:200px;border:1px solid #e0f0de;display:none;direction:rtl}
+.a11y-panel.open{display:block;animation:slideDown 0.2s ease}
+.a11y-panel h4{font-size:12px;font-weight:800;color:#0a1a0a;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #e8f5e6}
+.a11y-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.a11y-label{font-size:12px;color:#2a3a2a;font-weight:500}
+.a11y-ctrl{display:flex;gap:4px}
+.a11y-ctrl button{width:26px;height:26px;border-radius:7px;border:1.5px solid #d0eecf;background:#f5fdf5;font-size:13px;cursor:pointer;font-weight:700;color:#1a7a16;line-height:1;font-family:inherit}
+.a11y-ctrl button:hover{background:#3aaa35;color:white;border-color:#3aaa35}
+.a11y-toggle{width:100%;padding:7px;border-radius:8px;border:1.5px solid #d0eecf;background:#f5fdf5;font-size:11px;font-weight:700;color:#1a7a16;cursor:pointer;font-family:inherit;text-align:center}
+.a11y-toggle:hover,.a11y-toggle.on{background:#3aaa35;color:white;border-color:#3aaa35}
+.a11y-link{display:block;text-align:center;font-size:11px;color:#aaa;margin-top:10px;padding-top:10px;border-top:1px solid #f0f0f0;cursor:pointer;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;font-family:inherit}
+.a11y-link:hover{color:#3aaa35}
+body.a11y-contrast{filter:contrast(1.5) grayscale(0.2)}
+body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline:2px solid #3aaa35}
+
 /* Scroll animations */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
@@ -989,7 +1007,64 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
     }
   })();
 
+  // Accessibility widget
+  (function(){
+    var panel = document.getElementById('a11y-panel');
+    var btn = document.getElementById('a11y-btn');
+    var fontSize = 100;
+
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      panel.classList.toggle('open');
+    });
+    document.addEventListener('click', function(){
+      panel.classList.remove('open');
+    });
+    panel.addEventListener('click', function(e){ e.stopPropagation(); });
+
+    document.getElementById('a11y-bigger').addEventListener('click', function(){
+      fontSize = Math.min(fontSize + 10, 130);
+      document.documentElement.style.fontSize = fontSize + '%';
+    });
+    document.getElementById('a11y-smaller').addEventListener('click', function(){
+      fontSize = Math.max(fontSize - 10, 80);
+      document.documentElement.style.fontSize = fontSize + '%';
+    });
+    document.getElementById('a11y-contrast').addEventListener('click', function(){
+      document.body.classList.toggle('a11y-contrast');
+      this.classList.toggle('on');
+    });
+    document.getElementById('a11y-links').addEventListener('click', function(){
+      document.body.classList.toggle('a11y-links');
+      this.classList.toggle('on');
+    });
+    document.getElementById('a11y-reset').addEventListener('click', function(){
+      fontSize = 100;
+      document.documentElement.style.fontSize = '100%';
+      document.body.classList.remove('a11y-contrast','a11y-links');
+      document.querySelectorAll('.a11y-toggle').forEach(function(b){ b.classList.remove('on'); });
+    });
+  })();
+
 })();
 </script>
+
+<!-- Accessibility widget -->
+<button class="a11y-btn" id="a11y-btn" aria-label="נגישות">♿</button>
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="אפשרויות נגישות">
+  <h4>♿ נגישות</h4>
+  <div class="a11y-row">
+    <span class="a11y-label">גודל טקסט</span>
+    <div class="a11y-ctrl">
+      <button id="a11y-bigger" aria-label="הגדל טקסט">A+</button>
+      <button id="a11y-smaller" aria-label="הקטן טקסט">A-</button>
+    </div>
+  </div>
+  <div style="margin-bottom:8px"><button class="a11y-toggle" id="a11y-contrast">ניגודיות גבוהה</button></div>
+  <div style="margin-bottom:8px"><button class="a11y-toggle" id="a11y-links">הדגש קישורים</button></div>
+  <div style="margin-bottom:4px"><button class="a11y-toggle" id="a11y-reset">איפוס</button></div>
+  <button class="a11y-link" onclick="document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});document.getElementById('page-accessibility').classList.add('active');document.getElementById('a11y-panel').classList.remove('open')">הצהרת נגישות</button>
+</div>
+
 </body>
 </html>
