@@ -80,19 +80,20 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .about-text p{font-size:16px;color:#2a3a2a;line-height:1.85}
 .about-text p+p{margin-top:16px}
 .about-hl{display:inline-flex;align-items:center;gap:8px;background:#e8f7e6;color:#1a7a16;border-radius:8px;padding:10px 16px;margin-top:20px;font-size:13px;font-weight:700;border-right:3px solid #3aaa35}
-.svc-wrap{display:flex;gap:24px;align-items:flex-start}
-.svc-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.svc-card{display:flex;align-items:flex-start;gap:14px;padding:20px 18px;background:white;border-radius:18px;border:1.5px solid #e0f0de;box-shadow:0 2px 12px rgba(0,0,0,0.04);transition:all 0.28s ease}
-.svc-card:hover{border-color:#3aaa35;box-shadow:0 10px 32px rgba(58,170,53,0.16);transform:translateY(-4px)}
-.svc-icon{width:48px;height:48px;background:linear-gradient(135deg,#e8f7e6 0%,#c8f0c0 100%);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;transition:transform 0.28s ease}
-.svc-card:hover .svc-icon{transform:scale(1.12) rotate(-5deg)}
-.svc-name{font-size:15px;font-weight:800;color:#0a1a0a;margin-bottom:4px}
-.svc-desc{font-size:12px;color:#6a7a6a;line-height:1.55}
-.svc-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;border-radius:20px;padding:3px 10px;margin-top:8px}
+.svc-wrap{display:block}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc-card{display:flex;flex-direction:column;gap:0;padding:28px 24px;background:white;border-radius:20px;border:1.5px solid #eaf4e8;box-shadow:0 2px 16px rgba(0,0,0,0.05);transition:all 0.3s ease;border-top:3px solid transparent;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(58,170,53,0.03) 0%,transparent 60%);opacity:0;transition:opacity 0.3s ease;pointer-events:none}
+.svc-card:hover{border-top-color:#3aaa35;box-shadow:0 16px 48px rgba(58,170,53,0.13);transform:translateY(-6px)}
+.svc-card:hover::before{opacity:1}
+.svc-icon{width:54px;height:54px;background:linear-gradient(135deg,#e8f7e6 0%,#c8f0c0 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;transition:transform 0.3s ease;margin-bottom:16px}
+.svc-card:hover .svc-icon{transform:scale(1.1) rotate(-6deg)}
+.svc-name{font-size:16px;font-weight:800;color:#0a1a0a;margin-bottom:6px}
+.svc-desc{font-size:13px;color:#6a7a6a;line-height:1.6;flex:1}
+.svc-badge{display:inline-flex;align-items:center;font-size:11px;font-weight:700;border-radius:20px;padding:4px 12px;margin-top:14px;width:fit-content}
 .free{background:#e8f7e6;color:#1a7a16}
 .appt{background:#fff3e0;color:#a06010}
-.svc-img{width:320px;flex-shrink:0;border-radius:20px;overflow:hidden;height:360px;background:#b8dab5;box-shadow:0 8px 32px rgba(0,0,0,0.1);transition:transform 0.35s ease}
-.svc-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}.svc-img:hover{transform:translateY(-4px)}
+.svc-img{display:none}
 .faq-list{display:flex;flex-direction:column;gap:10px}
 .faq-item{background:white;border-radius:16px;border:1.5px solid #e0f0de;overflow:hidden;transition:all 0.25s ease}
 .faq-item.open{border-color:#3aaa35;box-shadow:0 6px 24px rgba(58,170,53,0.12)}
@@ -283,13 +284,12 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
   .about-hl{font-size:11px;padding:8px 10px}
 
   /* Services */
-  .svc-wrap{flex-direction:column;gap:14px}
-  .svc-grid{grid-template-columns:1fr;gap:8px}
-  .svc-card[style*="span 2"]{grid-column:span 1!important}
-  .svc-img{width:100%;height:160px}
-  .svc-icon{width:36px;height:36px;font-size:16px}
-  .svc-name{font-size:12px}
-  .svc-desc{font-size:10px}
+  .svc-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .svc-card{padding:18px 16px}
+  .svc-icon{width:40px;height:40px;font-size:20px;margin-bottom:10px}
+  .svc-name{font-size:13px}
+  .svc-desc{font-size:11px}
+  .svc-badge{font-size:10px;padding:3px 10px}
 
   /* FAQ */
   .faq-q{font-size:12px;padding:12px 12px}
@@ -543,13 +543,13 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
   <div class="sec-title"><span class="stbar"></span>השירותים שלנו</div>
   <div class="svc-wrap">
     <div class="svc-grid">
-      <div class="svc-card"><div class="svc-icon">🦷</div><div><div class="svc-name">צילום CT סיטי</div><div class="svc-desc">הדמיה תלת-ממדית</div><span class="svc-badge free">✓ ללא תור</span></div></div>
-      <div class="svc-card"><div class="svc-icon">🔬</div><div><div class="svc-name">צילום פנורמי</div><div class="svc-desc">מבט כולל על הפה והלסת</div><span class="svc-badge free">✓ ללא תור</span></div></div>
-      <div class="svc-card"><div class="svc-icon">📋</div><div><div class="svc-name">צילומי סטטוס</div><div class="svc-desc">סדרת צילומים מקיפה לבדיקה שוטפת</div><span class="svc-badge free">✓ ללא תור</span></div></div>
-      <div class="svc-card"><div class="svc-icon">📐</div><div><div class="svc-name">סטטוס מקביליות</div><div class="svc-desc">סדרת צילומים מקיפה ומפורטת של כל השיניים בנפרד</div><span class="svc-badge free">✓ ללא תור</span></div></div>
-      <div class="svc-card"><div class="svc-icon">😁</div><div><div class="svc-name">סט אורתודונטי</div><div class="svc-desc">צילומי פנים ופרופיל ליישור שיניים</div><span class="svc-badge appt">📅 דורש תור מראש</span></div></div>
-      <div class="svc-card"><div class="svc-icon">🎯</div><div><div class="svc-name">צילומי נשך</div><div class="svc-desc">לאבחון עששת ומרווחים</div><span class="svc-badge free">✓ ללא תור</span></div></div>
-      <div class="svc-card" style="grid-column:span 2"><div class="svc-icon">📏</div><div><div class="svc-name">צילום צפלומטרי</div><div class="svc-desc">פרופיל לסת לתכנון אורתודונטי מדויק</div><span class="svc-badge free">✓ ללא תור</span></div></div>
+      <div class="svc-card"><div class="svc-icon">🦷</div><div class="svc-name">צילום CT סיטי</div><div class="svc-desc">הדמיה תלת-ממדית מדויקת לתכנון טיפולי</div><span class="svc-badge free">✓ ללא תור</span></div>
+      <div class="svc-card"><div class="svc-icon">🔬</div><div class="svc-name">צילום פנורמי</div><div class="svc-desc">מבט כולל על הפה והלסת בצילום אחד</div><span class="svc-badge free">✓ ללא תור</span></div>
+      <div class="svc-card"><div class="svc-icon">📋</div><div class="svc-name">צילומי סטטוס</div><div class="svc-desc">סדרת צילומים מקיפה לבדיקה שוטפת</div><span class="svc-badge free">✓ ללא תור</span></div>
+      <div class="svc-card"><div class="svc-icon">📐</div><div class="svc-name">סטטוס מקביליות</div><div class="svc-desc">סדרת צילומים מפורטת של כל השיניים בנפרד</div><span class="svc-badge free">✓ ללא תור</span></div>
+      <div class="svc-card"><div class="svc-icon">😁</div><div class="svc-name">סט אורתודונטי</div><div class="svc-desc">צילומי פנים ופרופיל ליישור שיניים</div><span class="svc-badge appt">📅 דורש תור מראש</span></div>
+      <div class="svc-card"><div class="svc-icon">🎯</div><div class="svc-name">צילומי נשך</div><div class="svc-desc">לאבחון עששת ומרווחים בין השיניים</div><span class="svc-badge free">✓ ללא תור</span></div>
+      <div class="svc-card"><div class="svc-icon">📏</div><div class="svc-name">צילום צפלומטרי</div><div class="svc-desc">פרופיל לסת לתכנון אורתודונטי מדויק</div><span class="svc-badge free">✓ ללא תור</span></div>
     </div>
     <div class="svc-img"><img src="https://static.wixstatic.com/media/fff5b9_36eb8c0ebde9448abf04e8d082584c07~mv2.jpeg/v1/fill/w_556,h_602,al_c,lg_1,q_80,enc_avif,quality_auto/4.jpeg" alt="שירותים" onerror="this.style.display='none'" /></div>
   </div>
