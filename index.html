@@ -205,6 +205,22 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .back-btn{display:inline-flex;align-items:center;gap:8px;background:#e8f7e6;color:#1a7a16;border:none;border-radius:10px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:32px;font-family:inherit}
 .back-nav{background:#fff;display:flex;align-items:stretch;border-bottom:1px solid #e8f0e8;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
 .back-nav button{color:#3aaa35;font-size:13px;font-weight:700;padding:12px 18px;border:none;background:none;cursor:pointer;font-family:inherit}
+/* Scroll animations */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(32px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(-32px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.93);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-delay-5{transition-delay:0.5s}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none;transition:none}}
+
 @media(max-width:768px){
   /* Status bar */
   .sbar{flex-wrap:wrap;gap:4px;padding:5px 10px;font-size:10px}
@@ -906,6 +922,69 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
     var a = document.getElementById(cur);
     if (a) a.classList.add('act');
   });
+
+  // Scroll reveal animations
+  (function() {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    function initReveal() {
+      // Section titles
+      document.querySelectorAll('.sec-title, .eyebrow').forEach(function(el) {
+        el.classList.add('reveal');
+        observer.observe(el);
+      });
+      // About
+      var aboutImg = document.querySelector('.about-img');
+      var aboutText = document.querySelector('.about-text');
+      if (aboutImg) { aboutImg.classList.add('reveal-right'); observer.observe(aboutImg); }
+      if (aboutText) { aboutText.classList.add('reveal-left'); observer.observe(aboutText); }
+      // Service cards — staggered
+      document.querySelectorAll('.svc-card').forEach(function(el, i) {
+        el.classList.add('reveal', 'reveal-delay-' + Math.min(i + 1, 5));
+        observer.observe(el);
+      });
+      var svcImg = document.querySelector('.svc-img');
+      if (svcImg) { svcImg.classList.add('reveal-scale'); observer.observe(svcImg); }
+      // FAQ items — staggered
+      document.querySelectorAll('.faq-item').forEach(function(el, i) {
+        el.classList.add('reveal', 'reveal-delay-' + Math.min(i + 1, 5));
+        observer.observe(el);
+      });
+      // Hours
+      var hoursImg = document.querySelector('.hours-img');
+      var hoursInfo = document.querySelector('.hours-info');
+      if (hoursImg) { hoursImg.classList.add('reveal-right'); observer.observe(hoursImg); }
+      if (hoursInfo) { hoursInfo.classList.add('reveal-left'); observer.observe(hoursInfo); }
+      // Review cards — staggered
+      document.querySelectorAll('.rv-card').forEach(function(el, i) {
+        el.classList.add('reveal-scale', 'reveal-delay-' + (i + 1));
+        observer.observe(el);
+      });
+      // Contact
+      var ctText = document.querySelector('.ct-text');
+      var cf = document.querySelector('.cf');
+      if (ctText) { ctText.classList.add('reveal-right'); observer.observe(ctText); }
+      if (cf) { cf.classList.add('reveal-left'); observer.observe(cf); }
+      // CTA
+      var ctaTxt = document.querySelector('.cta-txt');
+      var ctaBtns = document.querySelector('.cta-btns');
+      if (ctaTxt) { ctaTxt.classList.add('reveal'); observer.observe(ctaTxt); }
+      if (ctaBtns) { ctaBtns.classList.add('reveal', 'reveal-delay-2'); observer.observe(ctaBtns); }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReveal);
+    } else {
+      initReveal();
+    }
+  })();
 
 })();
 </script>
