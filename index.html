@@ -261,6 +261,24 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .showcase-title span{color:#3aaa35;background:linear-gradient(135deg,#3aaa35 0%,#5dcc58 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .showcase-sub{font-size:15px;color:rgba(255,255,255,0.85);margin-top:14px;max-width:580px;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,0.4)}
 
+/* Process section */
+.process-sec{padding:64px 44px;background:#f8fdf8;position:relative;overflow:hidden}
+.process-wrap{display:flex;gap:48px;align-items:center;max-width:1100px;margin:0 auto}
+.process-video{width:300px;height:480px;flex-shrink:0;border-radius:24px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,0.12);border:1.5px solid #d8efd5;background:#0a0a0a;position:relative}
+.process-video video{width:100%;height:100%;object-fit:cover;display:block}
+.process-info{flex:1}
+.process-info .eyebrow{margin-bottom:8px}
+.process-info .sec-title{margin-bottom:32px}
+.process-steps{display:flex;flex-direction:column;gap:18px;margin-bottom:28px}
+.process-step{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;background:#fff;border-radius:14px;border:1px solid #eaf4e8;transition:all 0.25s ease}
+.process-step:hover{border-color:#3aaa35;transform:translateX(-4px);box-shadow:0 6px 20px rgba(58,170,53,0.1)}
+.process-step-num{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#3aaa35,#2d8a29);color:#fff;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.process-step-body{flex:1}
+.process-step-title{font-size:15px;font-weight:800;color:#0a1a0a;margin-bottom:3px;display:flex;align-items:center;gap:8px}
+.process-step-desc{font-size:13px;color:#5a6a5a;line-height:1.5}
+.process-cta{display:inline-flex;align-items:center;gap:6px;color:#3aaa35;font-size:14px;font-weight:700;background:none;border:none;cursor:pointer;font-family:inherit;padding:0}
+.process-cta:hover{color:#2d8a29}
+
 /* Accessibility widget */
 .a11y-btn{position:fixed;top:20px;left:20px;z-index:9999;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.25);border:1px solid rgba(58,170,53,0.3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,0.1);transition:all 0.2s;backdrop-filter:blur(6px)}
 .a11y-btn:hover{background:rgba(58,170,53,0.7);border-color:transparent}
@@ -347,6 +365,15 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
   .showcase-eyebrow{font-size:10px;padding:6px 14px;letter-spacing:2px;margin-bottom:10px}
   .showcase-title{font-size:24px;letter-spacing:-1px}
   .showcase-sub{font-size:12px;margin-top:10px}
+
+  /* Process mobile */
+  .process-sec{padding:36px 20px}
+  .process-wrap{flex-direction:column;gap:24px}
+  .process-video{width:220px;height:360px}
+  .process-step{padding:12px 14px;gap:12px}
+  .process-step-num{width:30px;height:30px;font-size:13px}
+  .process-step-title{font-size:13px}
+  .process-step-desc{font-size:11px}
 
   /* Why Us mobile */
   .why-sec{padding:36px 16px}
@@ -671,6 +698,42 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
       <div class="svc-card" style="grid-column:span 2"><div class="svc-icon">📏</div><div><div class="svc-name">צילום צפלומטרי</div><div class="svc-desc">פרופיל לסת לתכנון אורתודונטי מדויק</div><span class="svc-badge free">✓ ללא תור</span></div></div>
     </div>
     <div class="svc-img"><img src="https://static.wixstatic.com/media/fff5b9_36eb8c0ebde9448abf04e8d082584c07~mv2.jpeg/v1/fill/w_556,h_602,al_c,lg_1,q_80,enc_avif,quality_auto/4.jpeg" alt="שירותים" onerror="this.style.display='none'" /></div>
+  </div>
+</div>
+<div class="process-sec">
+  <div class="process-wrap">
+    <div class="process-video">
+      <video autoplay muted loop playsinline>
+        <source src="process.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="process-info">
+      <div class="eyebrow">התהליך</div>
+      <div class="sec-title"><span class="stbar"></span>מהצילום עד הפיענוח</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-step-num">1</div>
+          <div class="process-step-body">
+            <div class="process-step-title">⚡ צילום מהיר</div>
+            <div class="process-step-desc">ללא תור לרוב הצילומים — מגיעים, מצלמים, ויוצאים תוך דקות.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">2</div>
+          <div class="process-step-body">
+            <div class="process-step-title">💻 פיענוח מקצועי</div>
+            <div class="process-step-desc">מערכות הדמיה מתקדמות עם דיוק קליני ברמה הגבוהה ביותר.</div>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">3</div>
+          <div class="process-step-body">
+            <div class="process-step-title">📤 משלוח ישיר לרופא</div>
+            <div class="process-step-desc">התוצאות נשלחות ישירות לרופא שלך תוך זמן קצר.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <div id="s3" class="sec">
@@ -1116,6 +1179,15 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
       var ctaBtns = document.querySelector('.cta-btns');
       if (ctaTxt) { ctaTxt.classList.add('reveal'); observer.observe(ctaTxt); }
       if (ctaBtns) { ctaBtns.classList.add('reveal', 'reveal-delay-2'); observer.observe(ctaBtns); }
+      // Process section
+      var pv = document.querySelector('.process-video');
+      var pi = document.querySelector('.process-info');
+      if (pv) { pv.classList.add('reveal-right'); observer.observe(pv); }
+      if (pi) { pi.classList.add('reveal-left'); observer.observe(pi); }
+      document.querySelectorAll('.process-step').forEach(function(el, i) {
+        el.classList.add('reveal', 'reveal-delay-' + Math.min(i + 1, 3));
+        observer.observe(el);
+      });
     }
 
     if (document.readyState === 'loading') {
