@@ -434,24 +434,31 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
   .c-icon{width:32px;height:32px;font-size:14px}
   .f-inp,.f-ta{font-size:13px;padding:10px 12px}
 
-  /* Footer - single column, centered */
-  .footer-top{flex-direction:column;align-items:center;gap:14px;padding:16px;text-align:center}
-  .f-brand{flex-direction:row;gap:10px;align-items:center;justify-content:center}
-  .f-logo img{height:26px}
-  .f-brand-name{font-size:13px}
-  .f-tag{font-size:10px}
+  /* Footer - compact, two-column contact */
+  .footer-top{flex-direction:column;align-items:center;gap:10px;padding:12px 14px;text-align:center}
+  .f-brand{flex-direction:row;gap:8px;align-items:center;justify-content:center}
+  .f-logo img{height:24px}
+  .f-brand-name{font-size:12px}
+  .f-tag{font-size:9px;margin-top:2px}
   .f-divv{display:none}
   .f-links{display:grid;grid-template-columns:repeat(4,1fr);background:#111;width:100%;gap:0;}
-  .f-links button{color:#999;font-size:10px;font-weight:500;padding:9px 4px;border:none;border-left:1px solid #1e1e1e;background:none;cursor:pointer;font-family:inherit;text-align:center;width:100%;white-space:nowrap;}
+  .f-links button{color:#999;font-size:10px;font-weight:500;padding:8px 4px;border:none;border-left:1px solid #1e1e1e;background:none;cursor:pointer;font-family:inherit;text-align:center;width:100%;white-space:nowrap;}
   .f-links button.act{color:#fff;font-weight:700;background:#161616;}
   .f-links .fsep{display:none;}
-  .f-contact{flex-direction:column;gap:10px;align-items:center}
-  .f-contact-item{font-size:10px;gap:6px;justify-content:center}
-  .f-contact-item span{font-size:13px}
-  .footer-bot{flex-direction:column;align-items:center;text-align:center;padding:8px 16px;gap:6px}
-  .f-copy{font-size:10px}
+  .f-contact{display:grid;grid-template-columns:auto auto;grid-template-rows:auto auto;column-gap:24px;row-gap:6px;align-items:center;justify-content:center;width:100%;padding:4px 0}
+  .f-contact-item{font-size:10px;gap:5px;white-space:nowrap;display:flex;align-items:center}
+  .f-contact-item span{font-size:12px}
+  .f-contact-item:nth-child(1){grid-column:1;grid-row:1;justify-self:end}
+  .f-contact-item:nth-child(2){grid-column:1;grid-row:2;justify-self:end}
+  .f-contact-item:nth-child(3){grid-column:2;grid-row:1/span 2;justify-self:start;align-self:center}
+  .fht{font-size:10px}
+  .fht td{padding:1px 0}
+  .fht .dc{padding-left:8px;min-width:42px}
+  .fht .fri .dc,.fht .fri .tc{padding-top:3px}
+  .footer-bot{flex-direction:column;align-items:center;text-align:center;padding:6px 14px;gap:4px}
+  .f-copy{font-size:9px}
   .f-legal{flex-wrap:wrap;justify-content:center;gap:4px}
-  .f-legal button{font-size:10px}
+  .f-legal button{font-size:9px}
 
   /* CTA */
   .cta-sec{padding:40px 16px;flex-direction:column;text-align:center;gap:20px}
