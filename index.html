@@ -90,8 +90,16 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .about-img{width:320px;flex-shrink:0;border-radius:20px;overflow:hidden;height:360px;background:#b8dab5;box-shadow:0 8px 32px rgba(0,0,0,0.1);transition:transform 0.35s ease}
 .about-img:hover{transform:translateY(-6px)}
 .about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-text{flex:1}
 .about-text p{font-size:16px;color:#2a3a2a;line-height:1.85}
 .about-text p+p{margin-top:16px}
+.about-values{width:320px;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.about-value{background:#fff;border:1.5px solid #eaf4e8;border-radius:18px;padding:22px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:1;transition:all 0.3s ease;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.about-value:hover{border-color:#3aaa35;transform:translateY(-4px);box-shadow:0 12px 32px rgba(58,170,53,0.12)}
+.about-value:hover .about-value-icon{transform:scale(1.12) rotate(-6deg)}
+.about-value-icon{width:52px;height:52px;background:linear-gradient(135deg,#e8f7e6 0%,#c8efc4 100%);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;transition:transform 0.3s ease}
+.about-value-title{font-size:14px;font-weight:800;color:#0a1a0a;margin-bottom:4px}
+.about-value-desc{font-size:11px;color:#6a7a6a;line-height:1.45}
 .about-hl{display:inline-flex;align-items:center;gap:8px;background:#e8f7e6;color:#1a7a16;border-radius:8px;padding:10px 16px;margin-top:20px;font-size:13px;font-weight:700;border-right:3px solid #3aaa35}
 .svc-wrap{display:flex;gap:24px;align-items:flex-start}
 .svc-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -396,6 +404,7 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
   /* About */
   .about-wrap{flex-direction:column;gap:14px}
   .about-img{width:100%;height:180px}
+  .about-values{display:none}
   .about-text p{font-size:13px;line-height:1.75}
   .about-hl{font-size:11px;padding:8px 10px}
 
@@ -658,6 +667,28 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
   <div class="eyebrow">מי אנחנו</div>
   <div class="sec-title"><span class="stbar"></span>אודות</div>
   <div class="about-wrap">
+    <div class="about-values">
+      <div class="about-value">
+        <div class="about-value-icon">❤️</div>
+        <div class="about-value-title">יחס אישי</div>
+        <div class="about-value-desc">צוות חם וסבלני</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">⚡</div>
+        <div class="about-value-title">ללא תור</div>
+        <div class="about-value-desc">לרוב הצילומים</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">🎯</div>
+        <div class="about-value-title">דיוק קליני</div>
+        <div class="about-value-desc">הדמיה מתקדמת</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">🛡️</div>
+        <div class="about-value-title">אמינות מוכחת</div>
+        <div class="about-value-desc">משרד הביטחון</div>
+      </div>
+    </div>
     <div class="about-text">
       <p>מדילייף — כבר למעלה מ-30 שנה שאנחנו משרתים את תושבי נתניה והסביבה ואת מיטב רופאי השיניים באזור.</p>
       <p>אצלנו במדילייף שילבנו את הטכנולוגיה הרפואית המתקדמת בעולם עם אווירה ביתית ורגועה.</p>
