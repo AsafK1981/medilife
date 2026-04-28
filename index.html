@@ -220,19 +220,6 @@ body{font-family:'Heebo',sans-serif;direction:rtl;background:#fff}
 .back-btn{display:inline-flex;align-items:center;gap:8px;background:#e8f7e6;color:#1a7a16;border:none;border-radius:10px;padding:10px 18px;font-size:13px;font-weight:700;cursor:pointer;margin-bottom:32px;font-family:inherit}
 .back-nav{background:#fff;display:flex;align-items:stretch;border-bottom:1px solid #e8f0e8;box-shadow:0 1px 8px rgba(0,0,0,0.06)}
 .back-nav button{color:#3aaa35;font-size:13px;font-weight:700;padding:12px 18px;border:none;background:none;cursor:pointer;font-family:inherit}
-/* Why Us section */
-.why-sec{background:linear-gradient(135deg,#0d1f0d 0%,#1a3a1a 100%);padding:64px 44px;position:relative;overflow:hidden;background-size:200% 200%;animation:gradientShift 18s ease infinite}
-.why-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(58,170,53,0.18) 0%,transparent 50%),radial-gradient(circle at 80% 30%,rgba(66,191,60,0.13) 0%,transparent 50%);pointer-events:none}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;max-width:1200px;margin:0 auto}
-.why-card{text-align:center;padding:24px 16px}
-.why-icon{width:64px;height:64px;border-radius:18px;background:rgba(58,170,53,0.18);border:1.5px solid rgba(58,170,53,0.4);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 16px;animation:iconBob 3s ease-in-out infinite}
-.why-card:nth-child(2) .why-icon{animation-delay:0.4s}
-.why-card:nth-child(3) .why-icon{animation-delay:0.8s}
-.why-card:nth-child(4) .why-icon{animation-delay:1.2s}
-.why-num{font-size:42px;font-weight:900;color:#fff;line-height:1;letter-spacing:-2px;margin-bottom:6px;display:flex;align-items:baseline;justify-content:center;gap:2px}
-.why-num-suffix{font-size:24px;color:#3aaa35;font-weight:800}
-.why-label{font-size:13px;color:rgba(255,255,255,0.75);font-weight:600;line-height:1.5}
-
 /* About stats strip */
 .about-stats{display:flex;gap:24px;margin-top:24px;padding-top:20px;border-top:1px solid #e0f0de}
 .about-stat{flex:1;text-align:center}
@@ -375,14 +362,25 @@ body.a11y-links a,.a11y-links button{text-decoration:underline!important;outline
   .process-step-title{font-size:13px}
   .process-step-desc{font-size:11px}
 
-  /* Why Us mobile */
-  .why-sec{padding:36px 16px}
-  .why-grid{grid-template-columns:1fr 1fr;gap:14px}
-  .why-card{padding:14px 8px}
-  .why-icon{width:48px;height:48px;font-size:24px;margin-bottom:10px}
-  .why-num{font-size:30px}
-  .why-num-suffix{font-size:18px}
-  .why-label{font-size:11px}
+  /* A11y button → bottom-left on mobile (avoids nav overlap) */
+  .a11y-btn{top:auto;bottom:20px}
+  .a11y-panel{top:auto;bottom:62px}
+
+  /* Hide hero shapes — too heavy on mobile */
+  .shape{display:none}
+
+  /* Hero image — fill frame nicely on mobile */
+  .hero-img-box{height:260px}
+  .hero-img-box img{object-fit:cover;object-position:center 30%}
+
+  /* Showcase title — bigger so it doesn't get lost */
+  .showcase-title{font-size:28px}
+
+  /* Show "פתוח עכשיו" badge in compact form */
+  .hbf2{display:flex;top:8px;left:8px;padding:6px 10px;border-radius:10px}
+  .hbf2-txt{font-size:10px}
+  .hbf2-dot{width:8px;height:8px}
+
   .about-stats{gap:12px;margin-top:18px;padding-top:16px}
   .about-stat-num{font-size:22px}
   .about-stat-lbl{font-size:10px}
